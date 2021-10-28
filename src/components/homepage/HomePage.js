@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Menus from './Menus';
 import Ourapp from './Ourapp';
 
 const HomePage = () => {
@@ -7,6 +8,7 @@ const HomePage = () => {
         <>
 
             <Header />
+            <Menus />
             <Ourapp />
 
         </>
