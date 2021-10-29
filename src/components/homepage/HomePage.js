@@ -1,4 +1,5 @@
 import React from 'react';
+import AllMeals from '../AllMeals';
 import Header from './Header';
 import Menus from './Menus';
 import Ourapp from './Ourapp';
@@ -9,6 +10,7 @@ const HomePage = () => {
 
             <Header />
             <Menus />
+            <AllMeals />
             <Ourapp />
 
         </>

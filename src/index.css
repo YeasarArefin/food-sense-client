@@ -4,9 +4,13 @@
 
 body{
     font-family: 'Lato', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .btn{
     @apply text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full focus:ring-4 focus:ring-red-300 focus:border-white px-5 py-2 shadow-xl transition duration-500
+}
+
+.input{
+   @apply w-5/6 px-4 py-2 bg-gray-50 focus:outline-none focus:ring-4 focus:ring-red-500 border border-gray-300 rounded-lg transition duration-500
 }
