@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleMeal = ({ meal }) => {
 
-    const { name, img, title, rating, price } = meal;
+    const { _id, name, img, title, rating, price } = meal;
 
     return (
 
@@ -20,7 +21,9 @@ const SingleMeal = ({ meal }) => {
 
                 <div className="flex justify-between items-center">
                     <h1 className="font-bold text-xl">${price}</h1>
-                    <button className="btn">Order Now</button>
+                    <Link to={`/details/${_id}`}>
+                        <button className="btn">Order Now</button>
+                    </Link>
                 </div>
 
             </div>

@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { RiLogoutCircleRLine } from 'react-icons/ri';
+import useAuth from '../../hooks/useAuth';
 
 const Nav = () => {
 
+    const { user, GoogleLogin, LogOut } = useAuth();
+
     return (
 
-        <div>
+        <div className="fixed top-0 w-full z-50 bg-white">
 
             <div className="container py-3 flex items-center justify-between">
 
@@ -33,9 +38,39 @@ const Nav = () => {
                         <Link to="/">Contact</Link>
                     </li>
 
-                    <button className="btn">
-                        <Link to="/">Order</Link>
-                    </button>
+                    {
+                        user?.email ? (
+
+                            <div className="flex items-center gap-x-4">
+
+                                <div className="flex items-center gap-x-3">
+
+                                    <div>
+                                        <img width="40px" className="rounded-full" src={user.photoURL} alt="user" />
+                                    </div>
+
+                                    <h1 className="text-lg font-semibold">{user?.displayName}</h1>
+
+                                </div>
+
+                                <button onClick={LogOut} className="px-4 py-2 rounded-full border-red-500 border-2 flex items-center gap-x-2 focus:ring-4 focus:ring-red-200 transition duration-500">
+
+                                    Sing Out
+                                    <RiLogoutCircleRLine className="text-xl" />
+
+                                </button>
+
+                            </div>
+
+                        ) : (
+
+                            <button onClick={GoogleLogin} className="px-4 py-2 rounded-full border-red-500 border-2 flex items-center gap-x-2 focus:ring-4 focus:ring-red-200 transition duration-500">
+                                <FcGoogle className="text-2xl" />Sing In
+                            </button>
+
+                        )
+
+                    }
 
                 </ul>
 
