@@ -9,6 +9,7 @@ import HomePage from "./components/homepage/HomePage";
 import Nav from "./components/homepage/Nav";
 import MealDetails from "./components/MealDetails";
 import Notfound from "./components/Notfound";
+import Orders from "./components/Orders";
 import AuthProvider from "./context/AuthProvider";
 
 function App() {
@@ -37,6 +38,10 @@ function App() {
 
 					<Route exact path="/details/:_id">
 						<MealDetails />
+					</Route>
+
+					<Route exact path="/orders">
+						<Orders />
 					</Route>
 
 					<Route exact path="*">

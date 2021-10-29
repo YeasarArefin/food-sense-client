@@ -1,18 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { BsCart2 } from 'react-icons/bs';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { useForm } from "react-hook-form";
 import useAuth from '../hooks/useAuth';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const MealDetails = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
-
+    const { register, handleSubmit, reset } = useForm();
     const { _id } = useParams();
     const [meal, setMeal] = useState({});
     const { user } = useAuth();
+    const history = useHistory();
+
+    const onSubmit = data => {
+        console.log(data);
+
+        const newData = { data, meal };
+
+        fetch('http://localhost:5000/orders', {
+
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newData)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data) {
+
+                    Swal.fire(
+                        'Good job!',
+                        'Your Order Has Been Placed',
+                        'success',
+                        reset()
+                    );
+                }
+                history.push('/orders');
+            });
+
+    };
 
     useEffect(() => {
 
