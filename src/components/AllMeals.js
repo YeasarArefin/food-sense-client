@@ -22,7 +22,7 @@ const AllMeals = () => {
                 <div className="w-20 h-1 bg-red-500 rounded-full mx-auto mt-3"></div>
             </h1>
 
-            <div className="grid grid-cols-3 gap-y-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20">
 
                 {
                     meals.map(meal => <SingleMeal key={meal._id} meal={meal} />)

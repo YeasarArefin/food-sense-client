@@ -38,7 +38,7 @@ const Menus = () => {
                 Our Menus
                 <div className="w-20 h-1 bg-red-500 rounded-full mx-auto mt-3"></div>
             </h1>
-            <div className='container flex justify-evenly '>
+            <div className='container flex flex-wrap gap-y-3 justify-evenly '>
 
                 {
                     menus.map((menu, index) => <div className="flex p-3 flex-col items-center border rounded-xl shadow-lg hover:bg-red-500 hover:text-white transition duration-500" key={index}>
