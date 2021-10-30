@@ -25,7 +25,7 @@ const Orders = () => {
 
             <div className="container mt-28 col-span-6">
 
-                <div className="grid grid-cols-6 items-center place-items-center p-3 bg-red-600 text-white rounded-lg shadow-xl">
+                <div className=" grid grid-cols-6 items-center place-items-center p-3 bg-red-600 text-white rounded-lg shadow-xl" style={{ width: "1470px" }}>
 
                     <h1>Image</h1>
                     <h1>Food Name</h1>

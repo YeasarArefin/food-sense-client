@@ -32,7 +32,9 @@ const Sidebar = () => {
                     <Link to="/dashboard/addmeal">
                         <button className="px-12 py-3 border-2 focus:outline-none focus:ring-4 focus:ring-red-300 focus:shadow-md  transition duration-500 border-red-500 font-bold rounded-full">Add New Meal</button>
                     </Link>
+
                 </div>
+
             </div>
 
         </div>
