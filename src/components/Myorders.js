@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import Rating from 'react-rating';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import Swal from 'sweetalert2';
 
 const Myorders = () => {
 
@@ -19,6 +20,44 @@ const Myorders = () => {
     useEffect(() => {
         loadData();
     }, []);
+
+    const handleDelete = (_id) => {
+
+        Swal.fire({
+            title: 'Are you sure to cancel this order?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                );
+
+                fetch(`http://localhost:5000/orders/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        if (data.deletedCount > 0) {
+                            const remainingOrders = meals.filter(meal => meal?._id !== _id);
+                            setMeals(remainingOrders);
+                        }
+
+                    });
+
+            }
+
+        });
+
+    };
 
     const myMeal = meals.filter(meal => meal?.data.email == user?.email);
 
@@ -47,6 +86,7 @@ const Myorders = () => {
                                 <h1 className="text-2xl font-bold">{meal?.meal.name}</h1>
                                 <p className="w-5/6">{meal?.meal.discription}</p>
                                 <div className="flex  gap-x-3">
+                                    <h1 className="text-lg">${meal?.meal.price}</h1>
                                     <Rating className="text-2xl"
                                         emptySymbol={<AiOutlineStar className="text-yellow-500" />}
                                         fullSymbol={<AiFillStar className="text-yellow-500" />}
@@ -59,12 +99,14 @@ const Myorders = () => {
                             </div>
 
                             <div>
-                                <button className="btn">Cancle</button>
+                                <button onClick={() => handleDelete(meal?._id)} className="btn">Cancle</button>
                             </div>
 
                         </div>
 
-                    </div>)
+                    </div>
+
+                    )
 
                 }
 

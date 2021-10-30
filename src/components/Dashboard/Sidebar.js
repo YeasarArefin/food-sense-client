@@ -25,7 +25,7 @@ const Sidebar = () => {
 
                 <div className="text-center flex flex-col gap-y-7 font-bold">
 
-                    <Link to="/dashboard/orders">
+                    <Link to="/dashboard/manageorders">
                         <button className="px-12 py-3 border-2 focus:outline-none focus:ring-4 focus:ring-red-300 focus:shadow-md  transition duration-500 border-red-500 font-bold rounded-full">Manage Orders</button>
                     </Link>
 

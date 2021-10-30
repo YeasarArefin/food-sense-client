@@ -10,7 +10,7 @@ import Nav from "./components/homepage/Nav";
 import MealDetails from "./components/MealDetails";
 import Myorders from "./components/Myorders";
 import Notfound from "./components/Notfound";
-import Orders from "./components/Orders";
+import ManageOrders from "./components/ManageOrders";
 import AuthProvider from "./context/AuthProvider";
 
 function App() {
@@ -37,8 +37,8 @@ function App() {
 						<MealDetails />
 					</Route>
 
-					<Route exact path="/dashboard/orders">
-						<Orders />
+					<Route exact path="/dashboard/manageorders">
+						<ManageOrders />
 					</Route>
 
 					<Route exact path="/dashboard/addmeal">
