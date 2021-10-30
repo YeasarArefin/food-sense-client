@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Rating from 'react-rating';
+import { AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
 
 const SingleMeal = ({ meal }) => {
 
@@ -16,7 +19,19 @@ const SingleMeal = ({ meal }) => {
             <div className="flex flex-col gap-y-2 p-5">
 
                 <h1 className="font-semibold text-xl">{name}</h1>
-                <h1 className="text-xl">{rating}</h1>
+
+                <div className="flex gap-x-3">
+
+                    <Rating className="text-2xl"
+                        emptySymbol={<AiOutlineStar className="text-yellow-500" />}
+                        fullSymbol={<AiFillStar className="text-yellow-500" />}
+                        initialRating={rating}
+                        readonly
+                    />
+                    <h1 className="text-xl">({rating})</h1>
+
+                </div>
+
                 <h1 className="font-light text-sm">{title}</h1>
 
                 <div className="flex justify-between items-center">
