@@ -32,16 +32,16 @@ function App() {
 						<HomePage />
 					</Route>
 
-					<Route exact path="/addmeal">
-						<AddMeals />
-					</Route>
-
 					<Route exact path="/details/:_id">
 						<MealDetails />
 					</Route>
 
-					<Route exact path="/orders">
+					<Route exact path="/dashboard/orders">
 						<Orders />
+					</Route>
+
+					<Route exact path="/dashboard/addmeal">
+						<AddMeals />
 					</Route>
 
 					<Route exact path="*">

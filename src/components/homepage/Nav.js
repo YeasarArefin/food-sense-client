@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 import useAuth from '../../hooks/useAuth';
@@ -10,7 +10,7 @@ const Nav = () => {
 
     return (
 
-        <div className="fixed top-0 w-full z-50 bg-white">
+        <div className={`fixed top-0 w-full z-50 bg-white shadow-lg`}>
 
             <div className="container py-3 flex items-center justify-between">
 
@@ -20,22 +20,22 @@ const Nav = () => {
                     </Link>
                 </div>
 
-                <ul className="flex items-center gap-x-6">
+                <ul className="flex items-center gap-x-6 text-lg">
 
                     <li>
-                        <Link to="/">Home</Link>
+                        <NavLink exact activeStyle={{ borderBottom: "3px solid red" }} to="/">Home</NavLink>
+                    </li>
+
+                    {/* <li>
+                        <NavLink exact activeStyle={{ color: "red" }} to="/">About</NavLink>
                     </li>
 
                     <li>
-                        <Link to="/">About</Link>
-                    </li>
+                        <NavLink exact activeStyle={{ color: "red" }} to="/">Contact</NavLink>
+                    </li> */}
 
                     <li>
-                        <Link to="/addmeal">Add Meal</Link>
-                    </li>
-
-                    <li>
-                        <Link to="/">Contact</Link>
+                        <NavLink exact activeStyle={{ borderBottom: "3px solid red" }} to="/dashboard/orders">Dashboard</NavLink>
                     </li>
 
                     {
@@ -53,7 +53,7 @@ const Nav = () => {
 
                                 </div>
 
-                                <button onClick={LogOut} className="px-4 py-2 rounded-full border-red-500 border-2 flex items-center gap-x-2 focus:ring-4 focus:ring-red-200 transition duration-500">
+                                <button onClick={LogOut} className="px-4 py-2 rounded-full border-3px solid red-500 border-2 border-red-500 flex items-center gap-x-2 focus:ring-4 focus:ring-3px solid red-200 transition duration-500">
 
                                     Sing Out
                                     <RiLogoutCircleRLine className="text-xl" />
@@ -64,7 +64,7 @@ const Nav = () => {
 
                         ) : (
 
-                            <button onClick={GoogleLogin} className="px-4 py-2 rounded-full border-red-500 border-2 flex items-center gap-x-2 focus:ring-4 focus:ring-red-200 transition duration-500">
+                            <button onClick={GoogleLogin} className="px-4 py-2 rounded-full border-3px solid red-500 border-2 flex items-center gap-x-2 focus:ring-4 focus:ring-3px solid red-200 transition duration-500">
                                 <FcGoogle className="text-2xl" />Sing In
                             </button>
 

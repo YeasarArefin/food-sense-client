@@ -38,7 +38,7 @@ const MealDetails = () => {
                         reset()
                     );
                 }
-                history.push('/orders');
+                history.push('/');
             });
 
     };

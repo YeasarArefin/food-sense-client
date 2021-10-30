@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Sidebar from './Dashboard/Sidebar';
+import Nav from './homepage/Nav';
 import SingleOrder from './SingleOrder';
 
 const Orders = () => {
@@ -13,11 +15,17 @@ const Orders = () => {
     }, []);
     return (
 
-        <div>
+        <div className="grid grid-cols-1 lg:grid-cols-7">
 
-            <div className="container mt-28">
+            <div className="col-span-1">
 
-                <div className="grid grid-cols-6 items-center place-items-center p-3 bg-red-600 text-white rounded-lg">
+                <Sidebar />
+
+            </div>
+
+            <div className="container mt-28 col-span-6">
+
+                <div className="grid grid-cols-6 items-center place-items-center p-3 bg-red-600 text-white rounded-lg shadow-xl">
 
                     <h1>Image</h1>
                     <h1>Food Name</h1>

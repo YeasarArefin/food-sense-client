@@ -14,7 +14,7 @@ const Notfound = () => {
                 </div>
 
                 <Link to="/home">
-                    <button className="btn flex items-center gap-x-3 w-52"><MdArrowBackIosNew /> Back To Home</button>
+                    <button className="btn flex items-center gap-x-3 w-44"><MdArrowBackIosNew /> Back To Home</button>
                 </Link>
 
             </div>
