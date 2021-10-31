@@ -8,7 +8,7 @@ const ManageMeals = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/meals`)
+        fetch(`https://ghastly-flesh-48656.herokuapp.com/meals`)
             .then(res => res.json())
             .then(data => setMeals(data));
 
@@ -17,7 +17,7 @@ const ManageMeals = () => {
     const handleDelete = (_id) => {
 
         console.log(_id);
-        fetch(`http://localhost:5000/meals/${_id}`, {
+        fetch(`https://ghastly-flesh-48656.herokuapp.com/meals/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
