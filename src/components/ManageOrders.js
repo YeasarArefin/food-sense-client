@@ -92,32 +92,6 @@ const ManageOrders = () => {
 
     };
 
-    // const handleStatus = (_id) => {
-
-    //     fetch(`https://ghastly-flesh-48656.herokuapp.com/orders/${_id}`)
-    //         .then(res => res.json())
-    //         .then(data => { setOrder(data); });
-
-    //     const updatedStatus = { ...order };
-    //     updatedStatus.status = 'delevered';
-
-    //     fetch(`https://ghastly-flesh-48656.herokuapp.com/orders/${_id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(updatedStatus)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.modifiedCount > 0) {
-    //                 alert("Success");
-    //                 setUpdatedStatus("deleverd");
-    //             }
-    //         });
-
-    // };
-
     return (
 
         <div className="grid grid-cols-1 lg:grid-cols-7">

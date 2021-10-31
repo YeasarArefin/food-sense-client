@@ -33,6 +33,10 @@ const Sidebar = () => {
                         <button className="px-12 py-3 border-2 focus:outline-none focus:ring-4 focus:ring-red-300 focus:shadow-md  transition duration-500 border-red-500 font-bold rounded-full">Add New Meal</button>
                     </Link>
 
+                    <Link to="/dashboard/managemeals">
+                        <button className="px-12 py-3 border-2 focus:outline-none focus:ring-4 focus:ring-red-300 focus:shadow-md  transition duration-500 border-red-500 font-bold rounded-full">Manage Meals</button>
+                    </Link>
+
                 </div>
 
             </div>

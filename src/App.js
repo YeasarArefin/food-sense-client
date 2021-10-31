@@ -14,6 +14,7 @@ import ManageOrders from "./components/ManageOrders";
 import AuthProvider from "./context/AuthProvider";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
+import ManageMeals from "./components/ManageMeals";
 
 function App() {
 
@@ -45,6 +46,10 @@ function App() {
 
 					<PrivateRoute exact path="/dashboard/addmeal">
 						<AddMeals />
+					</PrivateRoute>
+
+					<PrivateRoute exact path="/dashboard/managemeals">
+						<ManageMeals />
 					</PrivateRoute>
 
 					<PrivateRoute exact path="/myorders">
