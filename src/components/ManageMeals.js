@@ -11,7 +11,10 @@ const ManageMeals = () => {
 
         fetch(`https://ghastly-flesh-48656.herokuapp.com/meals`)
             .then(res => res.json())
-            .then(data => setMeals(data));
+            .then(data => setMeals(data))
+            .catch((err) => {
+                console.log(err);
+            });
 
     }, []);
 
@@ -43,6 +46,9 @@ const ManageMeals = () => {
                             const remainingMeals = meals.filter(meal => meal._id !== _id);
                             setMeals(remainingMeals);
                         }
+                    })
+                    .catch((err) => {
+                        console.log(err);
                     });
 
             }
@@ -82,7 +88,7 @@ const ManageMeals = () => {
                         <div className="flex flex-col gap-y-5 text-xl">
 
                             {
-                                meals.map(meal => <div className="grid grid-cols-5 place-items-center border-2 p-3 rounded-2xl shadow-sm">
+                                meals.map(meal => <div key={meal._id} className="grid grid-cols-5 place-items-center border-2 p-3 rounded-2xl shadow-sm">
 
                                     <div>
                                         <img width="100px" src={meal?.img} alt="meal" />

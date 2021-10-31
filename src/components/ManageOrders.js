@@ -11,7 +11,10 @@ const ManageOrders = () => {
 
         fetch('https://ghastly-flesh-48656.herokuapp.com/orders')
             .then(res => res.json())
-            .then(data => setOrders(data));
+            .then(data => setOrders(data))
+            .catch((err) => {
+                console.log(err);
+            });
 
     }, []);
 
@@ -44,6 +47,9 @@ const ManageOrders = () => {
                             setOrders(remainingOrders);
                         }
 
+                    })
+                    .catch((err) => {
+                        console.log(err);
                     });
 
             }
@@ -84,6 +90,8 @@ const ManageOrders = () => {
                             window.location.reload();
                         }
 
+                    }).catch((err) => {
+                        console.log(err);
                     });
 
             }

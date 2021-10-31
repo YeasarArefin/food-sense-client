@@ -30,6 +30,9 @@ const AddMeals = () => {
                     );
                 }
 
+            })
+            .catch((err) => {
+                console.log(err);
             });
 
     };

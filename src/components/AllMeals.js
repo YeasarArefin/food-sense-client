@@ -9,7 +9,10 @@ const AllMeals = () => {
 
         fetch('https://ghastly-flesh-48656.herokuapp.com/meals')
             .then(res => res.json())
-            .then(data => setMeals(data));
+            .then(data => setMeals(data))
+            .catch((err) => {
+                console.log(err);
+            });
 
     }, []);
 

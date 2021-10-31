@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { RiLogoutCircleRLine } from 'react-icons/ri';

@@ -53,6 +53,9 @@ const Myorders = () => {
                             setMeals(remainingOrders);
                         }
 
+                    })
+                    .catch((err) => {
+                        console.log(err);
                     });
 
             }

@@ -39,6 +39,9 @@ const MealDetails = () => {
                     );
                 }
                 history.push('/');
+            })
+            .catch((err) => {
+                console.log(err);
             });
 
     };
@@ -47,7 +50,10 @@ const MealDetails = () => {
 
         fetch(`https://ghastly-flesh-48656.herokuapp.com/meals/${_id}`)
             .then(res => res.json())
-            .then(data => setMeal(data));
+            .then(data => setMeal(data))
+            .catch((err) => {
+                console.log(err);
+            });
 
     }, []);
 
