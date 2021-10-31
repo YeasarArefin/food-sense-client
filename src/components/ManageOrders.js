@@ -115,11 +115,28 @@ const ManageOrders = () => {
 
                 </div>
 
-                <div className="flex flex-col">
-                    {
-                        orders.map(order => <SingleOrder key={order._id} order={order} handleDelete={handleDelete} handleStatus={handleStatus} />)
-                    }
-                </div>
+                {
+                    orders.length !== 0 ? (
+
+                        <div className="flex flex-col">
+                            {
+                                orders.map(order => <SingleOrder key={order._id} order={order} handleDelete={handleDelete} handleStatus={handleStatus} />)
+                            }
+                        </div>
+
+                    ) : (
+
+                        <div className="flex flex-col h-full items-center justify-center mt-16">
+                            <img width="300px" src="https://media.istockphoto.com/vectors/gift-box-vector-id525353196?k=20&m=525353196&s=612x612&w=0&h=shwWPYYYsnEdMSg6yiuW9jX9gztuMvHYKthGQY8mf1U=" alt="empty" />
+
+                            <h1 className="text-3xl font-bold">No Order Yet!</h1>
+
+                        </div>
+
+                    )
+                }
+
+
 
             </div>
 
