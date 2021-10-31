@@ -10,24 +10,29 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const [user, setUser] = useState();
+    const [loading, setLoading] = useState(true);
 
     const GoogleLogin = () => {
+
+        setLoading(true);
 
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result.user;
                 setUser(user);
-                console.log(user);
             })
             .catch((error) => {
 
                 console.log(error.message);
 
-            });
+            })
+            .finally(() => { setLoading(false); });
 
     };
 
     const LogOut = () => {
+
+        setLoading(true);
 
         signOut(auth).then(() => {
             // Sign-out successful.
@@ -40,7 +45,8 @@ const useFirebase = () => {
 
         }).catch((error) => {
             console.log(error.message);
-        });
+        })
+            .finally(() => setLoading(false));
 
     };
 
@@ -53,7 +59,7 @@ const useFirebase = () => {
             } else {
                 setUser({});
             }
-
+            setLoading(false);
         });
 
     }, [auth]);
@@ -61,7 +67,8 @@ const useFirebase = () => {
     return {
         user,
         GoogleLogin,
-        LogOut
+        LogOut,
+        loading
     };
 
 };

@@ -12,6 +12,8 @@ import Myorders from "./components/Myorders";
 import Notfound from "./components/Notfound";
 import ManageOrders from "./components/ManageOrders";
 import AuthProvider from "./context/AuthProvider";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
 
@@ -33,20 +35,24 @@ function App() {
 						<HomePage />
 					</Route>
 
-					<Route exact path="/details/:_id">
+					<PrivateRoute exact path="/details/:_id">
 						<MealDetails />
-					</Route>
+					</PrivateRoute>
 
-					<Route exact path="/dashboard/manageorders">
+					<PrivateRoute exact path="/dashboard/manageorders">
 						<ManageOrders />
-					</Route>
+					</PrivateRoute>
 
-					<Route exact path="/dashboard/addmeal">
+					<PrivateRoute exact path="/dashboard/addmeal">
 						<AddMeals />
-					</Route>
+					</PrivateRoute>
 
-					<Route exact path="/myorders">
+					<PrivateRoute exact path="/myorders">
 						<Myorders />
+					</PrivateRoute>
+
+					<Route exact path="/login">
+						<Login />
 					</Route>
 
 					<Route exact path="*">

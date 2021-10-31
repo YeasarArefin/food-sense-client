@@ -3,6 +3,8 @@ import useAuth from '../hooks/useAuth';
 import Rating from 'react-rating';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Myorders = () => {
 
@@ -74,37 +76,58 @@ const Myorders = () => {
 
                 {
 
-                    myMeal.map(meal => <div key={meal._id}>
+                    meals.length !== 0 ? (
 
-                        <div className="w-4/5 mx-auto flex items-center gap-x-4 p-4 border border-gray-300 rounded-xl hover:shadow-xl transition duration-300">
+                        myMeal.map(meal => <div key={meal._id}>
 
-                            <div>
-                                <img className="rounded-md" src={meal?.meal.img} alt="my-img" />
-                            </div>
+                            <div className="w-4/5 mx-auto flex items-center gap-x-4 p-4 border border-gray-300 rounded-xl hover:shadow-xl transition duration-300">
 
-                            <div className="flex flex-col gap-y-4">
-                                <h1 className="text-2xl font-bold">{meal?.meal.name}</h1>
-                                <p className="w-5/6">{meal?.meal.discription}</p>
-                                <div className="flex  gap-x-3">
-                                    <h1 className="text-lg">${meal?.meal.price}</h1>
-                                    <Rating className="text-2xl"
-                                        emptySymbol={<AiOutlineStar className="text-yellow-500" />}
-                                        fullSymbol={<AiFillStar className="text-yellow-500" />}
-                                        initialRating={meal?.meal.rating}
-                                        readonly
-                                    />
-                                    <span className="text-lg">({meal?.meal.rating})</span>
-                                    <h1 className="px-3 py-1 text-white rounded-full bg-yellow-600 w-20">Pending</h1>
+                                <div>
+                                    <img className="rounded-md" src={meal?.meal.img} alt="my-img" />
                                 </div>
+
+                                <div className="flex flex-col gap-y-4">
+
+                                    <h1 className="text-3xl font-bold">{meal?.meal.name}</h1>
+                                    <p className="w-5/6 text-gray-600">{meal?.meal.discription}</p>
+
+                                    <div className="flex  gap-x-3">
+
+                                        <h1 className="text-2xl font-bold">${meal?.meal.price}</h1>
+
+                                        <Rating className="text-2xl"
+                                            emptySymbol={<AiOutlineStar className="text-yellow-500" />}
+                                            fullSymbol={<AiFillStar className="text-yellow-500" />}
+                                            initialRating={meal?.meal.rating}
+                                            readonly
+                                        />
+
+                                        <span className="text-lg">({meal?.meal.rating})</span>
+                                        <h1 className="px-3 py-1 text-white rounded-full bg-yellow-600 w-20">Pending</h1>
+
+                                    </div>
+
+                                </div>
+
+                                <div>
+                                    <button onClick={() => handleDelete(meal?._id)} className="btn">Cancle</button>
+                                </div>
+
                             </div>
 
-                            <div>
-                                <button onClick={() => handleDelete(meal?._id)} className="btn">Cancle</button>
-                            </div>
+                        </div>)
+
+                    ) : (
+
+                        <div className="flex flex-col h-full items-center justify-center">
+                            <img width="300px" src="https://media.istockphoto.com/vectors/gift-box-vector-id525353196?k=20&m=525353196&s=612x612&w=0&h=shwWPYYYsnEdMSg6yiuW9jX9gztuMvHYKthGQY8mf1U=" alt="empty" />
+
+                            <Link to="/home">
+                                <button className="btn flex items-center gap-x-3 text-xl"><MdOutlineArrowBackIosNew /> Order From Home</button>
+                            </Link>
+
 
                         </div>
-
-                    </div>
 
                     )
 
