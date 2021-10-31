@@ -17,7 +17,7 @@ const MealDetails = () => {
         const newData = { data, meal };
         newData.status = { type: "pending" };
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://ghastly-flesh-48656.herokuapp.com/orders', {
 
             method: 'POST',
             headers: {
@@ -45,7 +45,7 @@ const MealDetails = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/meals/${_id}`)
+        fetch(`https://ghastly-flesh-48656.herokuapp.com/meals/${_id}`)
             .then(res => res.json())
             .then(data => setMeal(data));
 

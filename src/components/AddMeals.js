@@ -8,7 +8,7 @@ const AddMeals = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
 
-        fetch('http://localhost:5000/meals', {
+        fetch('https://ghastly-flesh-48656.herokuapp.com/meals', {
 
             method: "POST",
             headers: {

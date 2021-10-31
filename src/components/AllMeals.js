@@ -7,7 +7,7 @@ const AllMeals = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/meals')
+        fetch('https://ghastly-flesh-48656.herokuapp.com/meals')
             .then(res => res.json())
             .then(data => setMeals(data));
 

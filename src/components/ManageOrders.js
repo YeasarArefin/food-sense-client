@@ -9,7 +9,7 @@ const ManageOrders = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/orders')
+        fetch('https://ghastly-flesh-48656.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data));
 
@@ -33,7 +33,7 @@ const ManageOrders = () => {
                     'success'
                 );
 
-                fetch(`http://localhost:5000/orders/${_id}`, {
+                fetch(`https://ghastly-flesh-48656.herokuapp.com/orders/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -70,7 +70,7 @@ const ManageOrders = () => {
                     'success'
                 );
 
-                fetch(`http://localhost:5000/orders/${_id}`, {
+                fetch(`https://ghastly-flesh-48656.herokuapp.com/orders/${_id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -94,14 +94,14 @@ const ManageOrders = () => {
 
     // const handleStatus = (_id) => {
 
-    //     fetch(`http://localhost:5000/orders/${_id}`)
+    //     fetch(`https://ghastly-flesh-48656.herokuapp.com/orders/${_id}`)
     //         .then(res => res.json())
     //         .then(data => { setOrder(data); });
 
     //     const updatedStatus = { ...order };
     //     updatedStatus.status = 'delevered';
 
-    //     fetch(`http://localhost:5000/orders/${_id}`, {
+    //     fetch(`https://ghastly-flesh-48656.herokuapp.com/orders/${_id}`, {
     //         method: 'PUT',
     //         headers: {
     //             'content-type': 'application/json'

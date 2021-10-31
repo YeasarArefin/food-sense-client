@@ -13,7 +13,7 @@ const Myorders = () => {
 
     const loadData = async () => {
 
-        const res = await fetch('http://localhost:5000/orders');
+        const res = await fetch('https://ghastly-flesh-48656.herokuapp.com/orders');
         const data = await res.json();
         setMeals(data);
 
@@ -42,7 +42,7 @@ const Myorders = () => {
                     'success'
                 );
 
-                fetch(`http://localhost:5000/orders/${_id}`, {
+                fetch(`https://ghastly-flesh-48656.herokuapp.com/orders/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -103,7 +103,7 @@ const Myorders = () => {
                                         />
 
                                         <span className="text-lg">({meal?.meal.rating})</span>
-                                        <h1 className="px-3 py-1 text-white rounded-full bg-yellow-600 w-20">Pending</h1>
+                                        <h1 className={`px-3 py-1 text-white rounded-full ${meal?.status.type == "pending" ? " bg-yellow-500" : "bg-green-600"} w-24 text-center capitalize`}>{meal?.status.type}</h1>
 
                                     </div>
 
