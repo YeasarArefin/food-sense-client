@@ -51,6 +51,73 @@ const ManageOrders = () => {
 
     };
 
+    const handleStatus = (_id) => {
+
+        Swal.fire({
+            title: 'Are you sure to update this order?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+
+                Swal.fire(
+                    'Updated',
+                    'Your file has been updated',
+                    'success'
+                );
+
+                fetch(`http://localhost:5000/orders/${_id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ type: "delevered" })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        if (data.modifiedCount > 0) {
+                            window.location.reload();
+                        }
+
+                    });
+
+            }
+
+        });
+
+    };
+
+    // const handleStatus = (_id) => {
+
+    //     fetch(`http://localhost:5000/orders/${_id}`)
+    //         .then(res => res.json())
+    //         .then(data => { setOrder(data); });
+
+    //     const updatedStatus = { ...order };
+    //     updatedStatus.status = 'delevered';
+
+    //     fetch(`http://localhost:5000/orders/${_id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(updatedStatus)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.modifiedCount > 0) {
+    //                 alert("Success");
+    //                 setUpdatedStatus("deleverd");
+    //             }
+    //         });
+
+    // };
+
     return (
 
         <div className="grid grid-cols-1 lg:grid-cols-7">
@@ -76,7 +143,7 @@ const ManageOrders = () => {
 
                 <div className="flex flex-col">
                     {
-                        orders.map(order => <SingleOrder key={order._id} order={order} handleDelete={handleDelete} />)
+                        orders.map(order => <SingleOrder key={order._id} order={order} handleDelete={handleDelete} handleStatus={handleStatus} />)
                     }
                 </div>
 

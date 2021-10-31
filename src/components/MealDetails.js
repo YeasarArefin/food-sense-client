@@ -13,9 +13,9 @@ const MealDetails = () => {
     const history = useHistory();
 
     const onSubmit = data => {
-        console.log(data);
 
         const newData = { data, meal };
+        newData.status = { type: "pending" };
 
         fetch('http://localhost:5000/orders', {
 

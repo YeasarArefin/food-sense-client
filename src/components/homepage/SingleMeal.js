@@ -10,7 +10,7 @@ const SingleMeal = ({ meal }) => {
 
     return (
 
-        <div className="border rounded-xl w-80 mx-auto shadow-lg">
+        <div className="border rounded-xl w-80 hover:shadow-2xl transition duration-300 h-auto mx-auto shadow-lg ">
 
             <div>
                 <img className="rounded-t-xl" src={img} alt="meal" />
