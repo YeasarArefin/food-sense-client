@@ -1,8 +1,11 @@
 import React from 'react';
+import Slide from 'react-reveal/Slide';
 
 const Footer = () => {
+
     return (
-        <div>
+
+        <Slide bottom>
 
             <footer className="text-red-600 body-font border-t-2">
                 <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
@@ -114,7 +117,7 @@ const Footer = () => {
                 </div>
             </footer>
 
-        </div>
+        </Slide>
     );
 };
 
